@@ -1,11 +1,36 @@
-import { useState } from 'react';
-import { Container, Row, Col, Button, Card, ListGroup, Table } from 'react-bootstrap';
-import { pizzas } from '../../utils/pizzas';
+import { useState, useEffect } from 'react';
+import { Container, Row, Col, Button, Card, ListGroup, Table, Spinner, Alert } from 'react-bootstrap';
 
 const Cart = () => {
-    const [cart, setCart] = useState(
-        pizzas.map((pizza) => ({ ...pizza, quantity: 0 }))
-    );
+    const [cart, setCart] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        consultarApi();
+    }, []);
+
+    const consultarApi = async () => {
+        try {
+            setLoading(true);
+            const url = "http://localhost:5000/api/pizzas";
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            // Inicializo el carrito con las pizzas de la API y cantidad en 0
+            setCart(data.map((pizza) => ({ ...pizza, quantity: 0 })));
+            setError(null);
+        } catch (error) {
+            setError(`Error al obtener los datos: ${error.message}`);
+            console.error("Error al obtener los datos:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const increaseQuantity = (index) => {
         const newCart = [...cart];
@@ -26,6 +51,24 @@ const Cart = () => {
     };
 
     const selectedPizzas = cart.filter((pizza) => pizza.quantity > 0);
+
+    if (loading) {
+        return (
+            <Container className="mt-4 text-center">
+                <Spinner animation="border">
+                    <output aria-live="polite" className="visually-hidden">Cargando...</output>
+                </Spinner>
+            </Container>
+        );
+    }
+
+    if (error) {
+        return (
+            <Container className="mt-4">
+                <Alert variant="danger">{error}</Alert>
+            </Container>
+        );
+    }
 
     return (
         <Container className="mt-3 mb-3">

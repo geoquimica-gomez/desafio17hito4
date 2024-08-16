@@ -4,7 +4,7 @@
 
 ## Despliegue
 
-Puedes ver la aplicación en funcionamiento [aquí](https://desafio17-hito3.vercel.app/).
+Puedes ver la aplicación en funcionamiento [aquí]().
 
 ## Tecnologías utilizadas
 
@@ -12,14 +12,12 @@ Puedes ver la aplicación en funcionamiento [aquí](https://desafio17-hito3.verc
 - **Vite**: Herramienta de desarrollo que proporciona un entorno rápido y eficiente.
 - **Bootstrap**: Framework de CSS para un diseño responsivo.
 - **react-bootstrap**: Componentes de Bootstrap integrados en React.
-- **gh-pages**: Utilizado para desplegar la aplicación en GitHub Pages.
-- **eslint**: Herramienta de análisis estático para identificar problemas en el código.
 
 ## Instalación
 
 1. Clona el repositorio:
     ```bash
-    git clone https://github.com/geoquimica-gomez/desafio17Hito3.git
+    git clone https://github.com/geoquimica-gomez/desafio17Hito4.git
     ```
 
 2. Navega al directorio del proyecto:
