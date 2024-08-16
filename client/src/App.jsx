@@ -13,7 +13,6 @@ import Cart from './views/Cart';
 import Pizza from './views/Pizza';
 
 function App() {
-  console.log('App render');
   return (
     <div className='appGrid'>
       <header>

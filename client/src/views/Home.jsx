@@ -33,7 +33,6 @@ const Home = () => {
         }
     };
 
-    // Separar la lógica de renderizado
     if (loading) {
         return (
             <Container className="mt-4 text-center">
