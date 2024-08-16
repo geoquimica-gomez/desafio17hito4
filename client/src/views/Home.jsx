@@ -60,6 +60,7 @@ const Home = () => {
                     {pizzas.map((pizza) => (
                         <Col md={4} className="mb-4 d-flex" key={pizza.id}>
                             <CardPizza
+                                id={pizza.id}
                                 name={pizza.name}
                                 price={pizza.price}
                                 ingredients={pizza.ingredients}

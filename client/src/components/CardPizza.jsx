@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import  { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Button, Container, Alert } from 'react-bootstrap';
 
-const CardPizza = ({ name, price, ingredients, img }) => {
+const CardPizza = ({ id, name, price, ingredients, img }) => {
     const [showNotification, setShowNotification] = useState(false);
 
     const handleAddPizza = () => {
@@ -36,7 +37,9 @@ const CardPizza = ({ name, price, ingredients, img }) => {
                     <strong>Precio:</strong> {formattedPrice}
                 </Card.Text>
                 <Container fluid className='custom-btns'>
-                    <Button className='btnSeeMore'>Ver Más</Button>
+                    <Link to={`/pizza/${id}`}>
+                        <Button className='btnSeeMore'>Ver Más</Button>
+                    </Link>
                     <Button className='btnAddPizza' onClick={handleAddPizza}>Añadir</Button>
                 </Container>
                 {showNotification && (
@@ -50,6 +53,7 @@ const CardPizza = ({ name, price, ingredients, img }) => {
 };
 
 CardPizza.propTypes = {
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,

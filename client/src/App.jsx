@@ -10,6 +10,7 @@ import Home from './views/Home';
 import RegisterPage from './views/RegisterPage';
 import LoginPage from './views/LoginPage';
 import Cart from './views/Cart';
+import Pizza from './views/Pizza';
 
 function App() {
   console.log('App render');
@@ -36,7 +37,10 @@ function App() {
           <Route
             path='cartShooping'
             element={<Cart />}
-            />
+          />
+          <Route
+            path="/pizza/:id"
+            element={<Pizza />} />
         </Routes>
       </main>
 
