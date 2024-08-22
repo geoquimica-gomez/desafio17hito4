@@ -2,9 +2,6 @@
 
 ¡Bienvenidos a Pizzería Delicias de Alondra! Esta es una aplicación de pizzería en línea desarrollada con React y Vite. 
 
-## Despliegue
-
-Puedes ver la aplicación en funcionamiento [aquí]().
 
 ## Tecnologías utilizadas
 
@@ -30,9 +27,15 @@ Puedes ver la aplicación en funcionamiento [aquí]().
     npm install
     ```
 
-4. Inicia la aplicación:
+4. Repite el proceso para el directorio del Backend
+
+5. Inicia la aplicación: (Primero levanta el servidor del Backend luego el directorio del Client)
     ```bash
-    npm run dev
+    npm start <!--(Para el backend) -->
+    ```
+
+    ```bash
+    npm run dev  <!--(Para el client) -->
     ```
 
 ## Scripts disponibles
